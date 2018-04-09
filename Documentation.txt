@@ -1,0 +1,43 @@
+1. Write a contract in Remix 
+2. Compile it and deploy it 
+3. Download web3 in local . npm install ganache-cli web3@0.20.2
+4. Check whether web3 is working 
+
+Web3 = require('web3');
+web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+web3.eth.accounts
+
+5. Write  a simple html file and js file to interact with the blockchain
+
+To interact with the Blokchain we need 3 things
+1. Web3 library
+2. ABI address (deployed contract address): ABI is an interface between two program modules. There are lot of contracts deployed in blockchain how do we know which contract to interact with so we need the contract address
+3. An End point to connect to the blockchain
+Here we are using local
+
+
+------ Lets try the same thing with truffle -----
+1. npm install -g truffle 
+2. npm install -g webpack
+3. truffle unbox webpack  
+
+Truffle Structure 
+1. Contracts folder : where we can write smart contracts 
+2. Migrations folder where we deploy the contracts 
+3. Inside test we can see the ABI in the format of JSON 
+4. you can also write unit test cases here
+5. truffle .js is where we give the endpoint to do the RPC calls 
+
+
+
+Test
+Voting.deployed().then(function(contractInstance) {contractInstance.voteForCandidate('Tonu').then(function(v) {console.log(v)})})
+Voting.deployed().then(function(contractInstance) {contractInstance.totalVotesFor.call('Tonu').then(function(v) {console.log(v)})})
+
+
+
+
+
+
+
+
